@@ -2,17 +2,26 @@ package main
 
 import (
 	"log"
+	"os"
 
-	metrika "github.com/xboston/go-yandex-metrika"
+	metrika "go-yandex-metrika"
 )
 
 func main() {
 
 	log.Println("Start")
-
-	code := ""
-	clientID := ""
-	clientSecret := ""
+	code := os.Getenv("YANDEX_CODE")
+	if code == "" {
+		log.Fatal("empty yandex code")
+	}
+	clientID := os.Getenv("YANDEX_CLIENT_ID")
+	if clientID == "" {
+		log.Fatal("empty yandex client id")
+	}
+	clientSecret := os.Getenv("YANDEX_CLIENT_SECRET")
+	if clientID == "" {
+		log.Fatal("empty yandex client secret")
+	}
 
 	metrika := metrika.NewMetrikaFromCode(code, clientID, clientSecret)
 	metrika.SetDebug(true)

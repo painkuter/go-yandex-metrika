@@ -2,15 +2,19 @@ package main
 
 import (
 	"log"
+	"os"
 
-	metrika "github.com/xboston/go-yandex-metrika"
+	metrika "go-yandex-metrika"
 )
 
 func main() {
 
 	log.Println("Start")
 
-	token := ""
+	token := os.Getenv("YANDEX_TOKEN")
+	if token == "" {
+		log.Fatal("empty yandex token")
+	}
 
 	metrika := metrika.NewMetrikaFromToken(token)
 	metrika.SetDebug(true)

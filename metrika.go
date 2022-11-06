@@ -39,7 +39,6 @@ func NewMetrikaFromToken(token string) (metrika *Metrika) {
 
 // NewMetrikaFromCode - создание инстанции с кодом доступа
 func NewMetrikaFromCode(code, clientID, clientSecret string) (metrika *Metrika) {
-
 	metrika = &Metrika{
 		Code: code,
 

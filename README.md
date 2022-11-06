@@ -21,7 +21,7 @@ package main
 import (
 	"log"
 
-	metrika "github.com/xboston/go-yandex-metrika"
+	metrika "go-yandex-metrika"
 )
 
 func main() {
